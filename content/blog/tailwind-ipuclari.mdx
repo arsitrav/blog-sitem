@@ -1,0 +1,141 @@
+---
+title: "Tailwind CSS ile Verimli UI Geliştirme: 10 İpucu"
+description: "Tailwind CSS'i daha verimli kullanmak için pratik ipuçları: dark mode, arbitrary values, component extraction ve performans optimizasyonu."
+date: "2024-01-22"
+author: "oguz-ali"
+category: "css"
+tags: ["tailwind", "css", "ui", "dark-mode"]
+tldr: "Tailwind'i utility-first felsefesiyle kullanın, dark mode için media stratejisini tercih edin ve tekrar eden pattern'leri component'e taşıyın."
+---
+
+Tailwind CSS, doğru kullanıldığında geliştirme hızını dramatik şekilde artırır. Yanlış kullanıldığında ise bakımı zor, şişirilmiş class listeleri ortaya çıkar.
+
+<TLDRBox>
+Tailwind'i utility-first felsefesiyle kullanın. Tekrar eden pattern'leri component'e taşıyın, `@apply` direktifini yalnızca gerçekten gerektiğinde kullanın.
+</TLDRBox>
+
+## 1. Dark Mode Stratejisi
+
+Tailwind'de iki dark mode stratejisi var: `class` ve `media`. Sistem tercihini otomatik takip etmek istiyorsanız `media` kullanın:
+
+```ts
+// tailwind.config.ts
+export default {
+  darkMode: "media",
+};
+```
+
+Artık `dark:` prefix'i ile dark mode stillerini doğrudan uygulayabilirsiniz:
+
+```html
+<div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  İçerik
+</div>
+```
+
+## 2. Arbitrary Values
+
+Tasarım sisteminizde olmayan bir değere ihtiyaç duyduğunuzda arbitrary values kullanın:
+
+```html
+<div class="w-[342px] top-[117px] bg-[#1da1f2]">...</div>
+```
+
+Ancak bu değerleri çok sık kullanıyorsanız, `tailwind.config.ts`'e eklemeyi düşünün.
+
+## 3. Typography Plugin
+
+Blog içerikleri için `@tailwindcss/typography` eklentisi zorunlu:
+
+```html
+<article class="prose prose-gray dark:prose-invert max-w-none">
+  <!-- MDX içerik buraya -->
+</article>
+```
+
+`prose-invert` dark modda otomatik renk uyarlaması yapar.
+
+## 4. Component Extraction
+
+Aynı Tailwind class listesini birden fazla yerde kullanıyorsanız, React component'e taşıyın:
+
+```tsx
+// Kötü: her yerde tekrar
+<button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+
+// İyi: component
+function Button({ children }: { children: React.ReactNode }) {
+  return (
+    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+      {children}
+    </button>
+  );
+}
+```
+
+## 5. CSS Variables ile Tema
+
+Tailwind'i CSS custom properties ile birleştirin:
+
+```css
+:root {
+  --color-primary: theme("colors.blue.600");
+}
+```
+
+## 6. Group ve Peer Modifier
+
+Parent hover'da child elementi stil vermek için `group` kullanın:
+
+```html
+<div class="group">
+  <p class="text-gray-600 group-hover:text-gray-900">Hover'da rengim değişir</p>
+</div>
+```
+
+## 7. Container Query
+
+Viewport yerine parent container boyutuna göre stil vermek için:
+
+```html
+<div class="@container">
+  <p class="@lg:text-xl">Container büyüdükçe yazı büyür</p>
+</div>
+```
+
+## 8. Animasyonlar
+
+Tailwind'in yerleşik animasyonları çoğu kullanım için yeterlidir:
+
+```html
+<div class="animate-fade-in animate-spin animate-bounce">...</div>
+```
+
+Özel animasyon için `tailwind.config.ts`'e `keyframes` ekleyin.
+
+## 9. Purge Optimizasyonu
+
+Production build'de kullanılmayan class'ları otomatik kaldırmak için `content` array'ini doğru yapılandırın:
+
+```ts
+content: [
+  "./app/**/*.{ts,tsx}",
+  "./components/**/*.{ts,tsx}",
+]
+```
+
+## 10. cn() Utility
+
+Conditional class'lar için `clsx` veya `cn` utility kullanın:
+
+```ts
+import { clsx } from "clsx";
+
+const classes = clsx(
+  "base-class",
+  isActive && "active-class",
+  variant === "primary" ? "bg-blue-600" : "bg-gray-600"
+);
+```
+
+Tailwind'in gücü, bu utility'leri bir arada akıllıca kullanmaktan gelir.

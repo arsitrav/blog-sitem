@@ -1,0 +1,99 @@
+---
+title: "Next.js App Router ile SEO Optimizasyonu"
+description: "generateMetadata, JSON-LD structured data ve dinamik sitemap ile blogunuzu Google ve yapay zeka arama motorları için optimize edin."
+date: "2024-01-15"
+author: "oguz-ali"
+category: "web-gelistirme"
+tags: ["next.js", "seo", "structured-data", "app-router"]
+tldr: "Next.js metadata API, JSON-LD ve next-sitemap üçlüsü blogunuzu hem Google hem yapay zeka arama motorlarında öne çıkarır. Her sayfa için generateMetadata kullanın, Article/Person/Organization schema ekleyin."
+---
+
+Next.js App Router, SEO için ihtiyacınız olan her şeyi yerleşik olarak sunar. Bu yazıda metadata API'sini, JSON-LD structured data'yı ve otomatik sitemap oluşturmayı ele alacağız.
+
+<TLDRBox>
+Next.js metadata API, JSON-LD ve next-sitemap üçlüsü blogunuzu hem Google hem yapay zeka arama motorlarında öne çıkarır.
+</TLDRBox>
+
+## Metadata API
+
+Next.js 14 ile her layout ve page dosyasında `generateMetadata` fonksiyonu export edebilirsiniz:
+
+```tsx
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = await getPostBySlug(params.slug);
+
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: {
+      canonical: `https://example.com/blog/${params.slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: "article",
+      publishedTime: post.date,
+    },
+  };
+}
+```
+
+Bu yaklaşım, `<Head>` component'ine göre birkaç avantaj sunar:
+
+- **Streaming SSR** ile uyumludur
+- Parent layout'tan otomatik miras alır
+- TypeScript ile tam tip güvenliği sağlar
+
+## JSON-LD Structured Data
+
+Arama motorları JSON-LD'yi HTML meta tag'larından daha güvenilir bulur. Blog yazıları için `Article` schema kullanın:
+
+```tsx
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.title,
+  description: post.description,
+  author: {
+    "@type": "Person",
+    name: author.name,
+  },
+  datePublished: post.date,
+};
+```
+
+## Canonical URL
+
+Her sayfada canonical URL eklemek, duplicate content sorunlarını önler:
+
+```tsx
+alternates: {
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`,
+}
+```
+
+## Dinamik Sitemap
+
+`next-sitemap` paketi, build sürecinde otomatik `sitemap.xml` oluşturur. `postbuild` script'e ekleyin:
+
+```json
+{
+  "scripts": {
+    "build": "next build",
+    "postbuild": "next-sitemap"
+  }
+}
+```
+
+## GEO (Generative Engine Optimization)
+
+Yapay zeka arama motorları (ChatGPT, Perplexity, Google AI Overviews) için:
+
+1. **Semantic HTML** kullanın — `<article>`, `<section>`, `<header>`
+2. **TL;DR bölümleri** ekleyin — AI'lar özet içeriği tercih eder
+3. **Structured data** ile bağlamı netleştirin
+4. **Robots.txt'e** `GPTBot` ve `ClaudeBot`'a izin verin
+
+## Sonuç
+
+SEO artık sadece Google için değil. Modern blog yazıları hem geleneksel arama motorlarına hem de AI sistemlerine hitap etmeli. Next.js bu dengeyi kurmak için gereken tüm araçları sunar.

@@ -1,0 +1,12 @@
+{
+  "name": "Oğuz Ali Yiğit",
+  "slug": "oguz-ali",
+  "shortBio": "Full-stack geliştirici, Next.js ve TypeScript tutkunu.",
+  "bio": "Oğuz Ali, 8 yılı aşkın deneyimiyle web geliştirme alanında çalışmaktadır. Next.js, TypeScript ve modern web standartları üzerine içerik üretir. Açık kaynak projelere katkıda bulunur ve performanslı, erişilebilir web uygulamaları tasarlamaktan keyif alır.",
+  "avatar": "/images/oguz-ali.jpg",
+  "social": {
+    "github": "oguzaliyigit",
+    "twitter": "oguzaliyigit",
+    "website": "https://oguzaliyigit.com"
+  }
+}
