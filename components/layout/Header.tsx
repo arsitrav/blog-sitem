@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Blog" },
@@ -14,9 +15,19 @@ export default function Header() {
       <div className="mx-auto max-w-3xl px-4 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="text-base font-semibold tracking-tight text-[var(--foreground)] hover:opacity-70 transition-opacity"
+          className="flex items-center gap-2 hover:opacity-70 transition-opacity"
         >
-          {siteName}
+          <Image
+            src="/images/logo/tkas.png"
+            alt="TKAS Logo"
+            width={40}
+            height={40}
+            className="w-10 h-10"
+            priority
+          />
+          <span className="text-base font-semibold tracking-tight text-[var(--foreground)] hidden sm:inline">
+            {siteName}
+          </span>
         </Link>
         <nav aria-label="Ana menü">
           <ul className="flex items-center gap-1 list-none m-0 p-0">

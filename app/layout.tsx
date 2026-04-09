@@ -26,6 +26,14 @@ export const metadata: Metadata = {
     siteName,
     locale: "tr_TR",
     type: "website",
+    images: [
+      {
+        url: "/images/og/default.png",
+        width: 1200,
+        height: 630,
+        alt: "TKAS Blog Sitem",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
