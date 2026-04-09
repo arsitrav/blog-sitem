@@ -19,10 +19,10 @@ export default function Header() {
         >
           <Image
             src="/images/logo/tkas.png"
-            alt="TKAS Logo"
-            width={40}
+            alt="ikas Logo"
+            width={157}
             height={40}
-            className="w-10 h-10"
+            className="h-6 w-auto"
             priority
           />
           <span className="text-base font-semibold tracking-tight text-[var(--foreground)] hidden sm:inline">
