@@ -36,7 +36,7 @@ export default async function KategoriPage({ params }: Props) {
   const posts = await getPostsByCategory(params.slug);
 
   return (
-    <>
+    <div className="max-w-[730px] mx-auto">
       <Breadcrumb
         items={[{ name: category.name, href: `/kategori/${category.slug}` }]}
       />
@@ -61,6 +61,6 @@ export default async function KategoriPage({ params }: Props) {
           </ul>
         )}
       </section>
-    </>
+    </div>
   );
 }

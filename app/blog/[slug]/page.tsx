@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
       <Breadcrumb
         items={[{ name: post.title, href: `/blog/${post.slug}` }]}
       />
-      <div className="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+      <div className={post.headings.length > 0 ? "lg:grid lg:grid-cols-[1fr_220px] lg:gap-12" : "max-w-[730px]"}>
         <article>
           <header className="mb-8">
             <div className="flex items-center gap-2 text-xs text-[var(--muted-foreground)] mb-3">

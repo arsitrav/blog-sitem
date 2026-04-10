@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Post } from "@/types";
+import { getCategoryBySlug } from "@/lib/categories";
 
 interface Props {
   post: Post;
@@ -12,12 +13,25 @@ export default function PostCard({ post }: Props) {
     day: "numeric",
   });
 
+  const category = post.category ? getCategoryBySlug(post.category) : undefined;
+
   return (
     <article className="group border-b border-[var(--border)] py-8 last:border-0">
       <div className="flex items-center gap-2 text-xs text-[var(--muted-foreground)] mb-2.5 font-medium tracking-wide">
         <time dateTime={post.date}>{dateStr}</time>
         <span aria-hidden>·</span>
         <span>{post.readingTime} dk okuma</span>
+        {category && (
+          <>
+            <span aria-hidden>·</span>
+            <Link
+              href={`/kategori/${category.slug}`}
+              className="text-[var(--accent)] hover:underline"
+            >
+              {category.name}
+            </Link>
+          </>
+        )}
       </div>
       <h2 className="text-lg font-semibold tracking-tight mb-2 transition-colors group-hover:text-[var(--accent)]">
         <Link

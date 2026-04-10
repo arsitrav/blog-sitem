@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <footer className="mt-20 border-t border-[var(--border)]">
-      <div className="mx-auto max-w-3xl px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--muted-foreground)]">
+      <div className="mx-auto max-w-5xl px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--muted-foreground)]">
         <p className="tracking-tight">
           © {year} {siteName}
         </p>
