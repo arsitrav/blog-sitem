@@ -1,9 +1,11 @@
 import type { MDXComponents } from "mdx/types";
 import TLDRBox from "./TLDRBox";
+import NewsletterInline from "@/components/blog/NewsletterInline";
 
 export function getMDXComponents(): MDXComponents {
   return {
     TLDRBox,
+    NewsletterInline,
     a: ({ href, children, ...props }) => {
       const isExternal = href?.startsWith("http");
       return (

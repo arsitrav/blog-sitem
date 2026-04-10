@@ -13,6 +13,29 @@ import { getMDXComponents } from "@/components/mdx/mdx-components";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
+/** Her 3. h2 başlığından ÖNCE <NewsletterInline /> enjekte eder (code block'ları atlar) */
+function injectNewsletterBetweenH2s(content: string): string {
+  // Code block'ları geçici placeholder'larla koru
+  const codeBlocks: string[] = [];
+  const masked = content.replace(/```[\s\S]*?```/g, (match) => {
+    codeBlocks.push(match);
+    return `\u0000CODEBLOCK${codeBlocks.length - 1}\u0000`;
+  });
+
+  let h2Count = 0;
+  const injected = masked.replace(/^(## .+)$/gm, (match) => {
+    h2Count++;
+    // 4., 7., 10. h2'den önce newsletter ekle (her 3 başlık sonrası)
+    if (h2Count > 1 && (h2Count - 1) % 3 === 0) {
+      return `<NewsletterInline />\n\n${match}`;
+    }
+    return match;
+  });
+
+  // Code block'ları geri koy
+  return injected.replace(/\u0000CODEBLOCK(\d+)\u0000/g, (_, i) => codeBlocks[Number(i)]);
+}
+
 function extractHeadings(content: string): Heading[] {
   const headingRegex = /^(#{2,3})\s+(.+)$/gm;
   const headings: Heading[] = [];
@@ -78,7 +101,7 @@ export async function getCompiledPost(slug: string) {
   const headings = extractHeadings(content);
 
   const { content: compiledContent } = await compileMDX({
-    source: content,
+    source: injectNewsletterBetweenH2s(content),
     components: getMDXComponents(),
     options: {
       mdxOptions: {
