@@ -9,7 +9,6 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? "Blog Sitem";
   const categories = getAllCategories();
 
   return (
@@ -22,16 +21,13 @@ export default function Header() {
             className="flex items-center gap-2 hover:opacity-70 transition-opacity"
           >
             <Image
-              src="/images/logo/tkas.png"
-              alt="ikas Logo"
-              width={157}
+              src="/images/logo/eticaret-haberleri.png"
+              alt="E-Ticaret Haberleri"
+              width={143}
               height={40}
-              className="h-6 w-auto"
+              className="h-7 w-auto"
               priority
             />
-            <span className="text-base font-semibold tracking-tight text-[var(--foreground)] hidden sm:inline">
-              {siteName}
-            </span>
           </Link>
           <nav aria-label="Ana menü">
             <ul className="flex items-center gap-1 list-none m-0 p-0">
