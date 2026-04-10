@@ -39,6 +39,12 @@ h2, h3 {
   letter-spacing: -0.025em;
 }
 
+/* TOC tıklamalarında sticky header altına gömülmesin */
+.prose h2,
+.prose h3 {
+  scroll-margin-top: 6.5rem;
+}
+
 ::selection {
   background: rgba(0, 153, 255, 0.2);
 }

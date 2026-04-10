@@ -122,7 +122,7 @@ export default async function BlogPostPage({ params }: Props) {
         </article>
         {post.headings.length > 0 && (
           <aside className="hidden lg:block">
-            <div className="sticky top-8">
+            <div className="sticky top-24">
               <TableOfContents headings={post.headings} />
             </div>
           </aside>

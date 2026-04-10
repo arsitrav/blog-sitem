@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import fs from 'fs';
 
 const basePath = '/Users/oguzaliyigit/blog-sitem';
-const svgPath = '/Users/oguzaliyigit/Downloads/e-ticaret-haberleri-logo.svg';
+const svgPath = '/Users/oguzaliyigit/Downloads/B Vector Icon.svg';
 
 const svgBuffer = fs.readFileSync(svgPath);
 
@@ -19,11 +19,12 @@ const svgBuffer = fs.readFileSync(svgPath);
 
 async function generateLogos() {
   // Header logo — 2× retina yüksekliği (80px), genişlik orantılı
+  // Header logo — kare ikon, 2× retina (56×56)
   await sharp(svgBuffer)
     .png()
-    .resize(null, 80, { fit: 'inside' })
-    .toFile(`${basePath}/public/images/logo/eticaret-haberleri.png`);
-  console.log('✅ Created: public/images/logo/eticaret-haberleri.png');
+    .resize(56, 56, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 0 } })
+    .toFile(`${basePath}/public/images/logo/b-icon.png`);
+  console.log('✅ Created: public/images/logo/b-icon.png');
 
   // Favicon 256×256 — logo kare içinde, saydam arka plan
   await sharp(svgBuffer)
@@ -42,7 +43,7 @@ async function generateLogos() {
   // OG image 1200×630 — logo beyaz zemin üzerinde ortalanmış
   const logoPng = await sharp(svgBuffer)
     .png()
-    .resize(800, null, { fit: 'inside' })
+    .resize(400, 400, { fit: 'inside' })
     .toBuffer();
 
   const { width: logoW, height: logoH } = await sharp(logoPng).metadata();

@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
+import GithubSlugger from "github-slugger";
 import type { Post, PostFrontmatter, Heading } from "@/types";
 import { getMDXComponents } from "@/components/mdx/mdx-components";
 
@@ -15,15 +16,16 @@ const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 function extractHeadings(content: string): Heading[] {
   const headingRegex = /^(#{2,3})\s+(.+)$/gm;
   const headings: Heading[] = [];
+  const slugger = new GithubSlugger();
 
   for (const match of content.matchAll(headingRegex)) {
     const level = match[1].length;
     const text = match[2].trim();
-    const id = text
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/-+/g, "-");
+    // Strip inline markdown so slug matches rehype-slug's output
+    const plainText = text
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // [text](url) → text
+      .replace(/[*_`]/g, "");                    // **bold**, _italic_, `code`
+    const id = slugger.slug(plainText);
     headings.push({ id, text, level });
   }
 
