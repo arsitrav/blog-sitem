@@ -1,0 +1,129 @@
+---
+title: "E-Ticarette Sosyal Medya Reklamı: Parayı Nereye Harcamalısın?"
+description: "Meta Ads, TikTok ve Google arasında bütçeyi nasıl dağıtmalısın? Türkiye'de e-ticaret yapan mağazalar için kanal seçimi, hedefleme ve ikas entegrasyonuyla ölçüm rehberi."
+date: "2026-04-10"
+author: "oguz-ali"
+category: "e-ticaret"
+tags: ["e-ticaret", "sosyal-medya", "meta-ads", "tiktok", "google", "ikas", "reklam"]
+tldr: "Bütçen kısıtlıysa önce Meta Ads + Google Shopping ikilisine git. İkisi birlikte mevcut talep (Google) ve yeni talep yaratma (Meta) görevlerini üstlenir. ikas'ın piksel ve feed entegrasyonları bu kanallarla doğrudan çalışır."
+---
+
+Aylık 10.000 TL reklam bütçen var. Meta Ads mı, TikTok mu, Google Ads mı? Hepsine mi dağıt?
+
+Hepsine dağıtırsan hiçbirinde yeterince veri birikmiyor, algoritmalar optimize edemiyor, para boşa gidiyor.
+
+<TLDRBox>
+Bütçen kısıtlıysa önce Meta Ads + Google Shopping ikilisine git. İkisi birlikte mevcut talep (Google) ve yeni talep yaratma (Meta) görevlerini üstlenir. ikas'ın piksel ve feed entegrasyonları bu kanallarla doğrudan çalışır.
+</TLDRBox>
+
+---
+
+## Kanalların Mantığı Farklı
+
+**Google Ads (Search + Shopping):** Müşteri zaten arıyor. "Kadın spor ayakkabı" arayan birine reklamın çıkıyor. Yüksek niyet, yüksek dönüşüm oranı.
+
+**Meta Ads (Facebook + Instagram):** Müşteri aramıyor, sen önüne çıkıyorsun. Yeni talep yaratırsın. Doğru hedeflemeyle ilgi çekersen sepete gidebilir.
+
+**TikTok Ads:** Keşfetme kanalı. Genç kitle, impulsif alımlar. Video içerik kalitesi kritik. Ölçmek diğerlerinden zor.
+
+**Influencer / İçerik:** Marka bilinirliği ve sosyal kanıt. Doğrudan dönüşüm bekleme — yardımcı kanal olarak işe yarar.
+
+---
+
+## Türkiye'de Hangi Kanal Ne Zaman?
+
+### Başlangıç aşaması (aylık 0–10.000 TL bütçe)
+
+Bu aşamada kanal sayısını sınırla. Önerim:
+
+**%60 Google Shopping, %40 Meta Ads Retargeting**
+
+Neden bu dağılım?
+- Google Shopping, ürün arayanları direkt yakalar — bütçe israfı düşük
+- Meta retargeting, mağazanı ziyaret edip almayan kişilere tekrar gösterir — genellikle en düşük maliyetli dönüşüm
+
+ikas + Google Shopping entegrasyonu için ürün feed'ini ikas'tan alıp Google Merchant Center'a bağlarsın. Bu bağlantı ikas panelinden birkaç adımda kurulur.
+
+### Büyüme aşaması (aylık 10.000–50.000 TL bütçe)
+
+**%40 Google (Search + Shopping), %40 Meta (prospecting + retargeting), %20 TikTok veya influencer**
+
+Bu aşamada Meta prospecting kampanyalarına yatırım yapılabilir: lookalike audience oluştur, mevcut müşterilerin profiline benzer yeni kitleye ulaş.
+
+### Ölçek aşaması (50.000 TL+)
+
+Tüm kanallar aktif, her kanal için ayrı içerik üretilir. Performans verisi kanal bazında takip edilir, bütçe kaydırılır.
+
+---
+
+## Meta Ads ile İkas Entegrasyonu
+
+Meta pikselini ikas mağazana bağlamak, reklamların öğrenmesini hızlandırır:
+
+1. ikas panelinden **Entegrasyonlar > Meta (Facebook) Piksel** bölümüne git
+2. Meta piksel ID'sini gir
+3. Otomatik olarak şu eventlar tetiklenmeye başlar: `ViewContent`, `AddToCart`, `InitiateCheckout`, `Purchase`
+
+Bu eventlar olmadan Meta'nın algoritması hangi reklamın satış getirdiğini bilemez, optimize edemez. Yani reklam bütçesini bilinçsizce harcıyor demektir.
+
+ikas, bu entegrasyonu yerleşik olarak sunuyor — WooCommerce'de eklenti kurman, Shopify'ın Pixel & Events uygulamasını aktif etmen gerekirdi.
+
+---
+
+## Google Shopping için Ürün Feed'i
+
+Google Shopping, ürünlerini otomatik taramak için Merchant Center feed'i kullanır. ikas, Google Shopping uyumlu XML feed'i otomatik oluşturur:
+
+- Ürün adı, açıklaması, fiyatı
+- Stok durumu (tükenince otomatik pasife alınır)
+- Görsel URL'leri
+- Varyant bilgileri
+
+Bu feed her gün güncellenir — fiyat veya stok değişikliklerini manuel aktarman gerekmez.
+
+---
+
+## Reklam İçeriği: Ne İşe Yarıyor?
+
+### Meta Ads için:
+
+**Statik görsel (carousel veya tekli):** Ürün + fiyat + net CTA. Basit çalışır.
+
+**Video (15–30 saniye):** Ürünü kullanırken göster. Lifestyle bağlamı. Metin bindirmeli versiyon ses kapalı izleyenler için.
+
+**UGC (kullanıcı içeriği):** Müşteri yorumu veya unboxing videosu. Organik görünüm, düşük üretim maliyeti, yüksek güven.
+
+### Google Shopping için:
+
+İçerik senin değil, ürün feed'inden geliyor. Fark yaratan: görsel kalitesi ve başlık. "Kırmızı elbise" yerine "Krep midi kırmızı elbise davet" daha spesifik aramaları yakalar.
+
+---
+
+## Ölçüm: Hangi Metriğe Bak?
+
+| Metrik | Neyi gösterir? | İyi eşik (Türkiye ortalaması) |
+|--------|---------------|-------------------------------|
+| ROAS (Return on Ad Spend) | Her 1 TL reklama kaç TL satış | 3x+ sürdürülebilir |
+| CTR (Tıklama oranı) | Reklamı gören kaçı tıklıyor | Meta: %1–3, Google: %2–5 |
+| CPA (Sipariş başına maliyet) | Bir sipariş için kaç TL harcandı | Ürün marjınıza göre değişir |
+| Sepet terk oranı | Sepete ekleyen kaçı ödeme yapmıyor | <%70 iyi |
+
+ikas'ın analitik paneli bu verilerin önemli bölümünü mağaza içinde gösteriyor. Meta ve Google verilerini karşılaştırmak için UTM parametreli linkler kullan.
+
+---
+
+## Sık Yapılan Hatalar
+
+**Çok erken pes etmek:** Meta algoritmasının öğrenmesi için kampanya başına en az 50 dönüşüm gerekiyor. İlk 2 haftada karar verme.
+
+**Geniş kitleye düşük bütçe:** 500 TL'yi 5 ayrı hedef kitleye bölmek yerine, 1–2 kitleye odaklan.
+
+**Reklam hedefini yanlış seçmek:** "Marka bilinirliği" hedefiyle satış beklemek. Satış istiyorsan "Conversions" veya "Sales" hedefini seç.
+
+**Piksel olmadan reklam:** Piksel yoksa Meta bilgi toplamıyor, dönüşüm takip etmiyor, reklam kör uçuyor.
+
+---
+
+Sosyal medya reklamı, doğru altyapı + doğru içerik + sabır kombinasyonu. ikas'ın Meta ve Google entegrasyonları altyapıyı çözüyor — geri kalanı sende.
+
+[ikas mağazanda reklam entegrasyonlarını kur →](https://www.ikas.com)
