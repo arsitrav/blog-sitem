@@ -1,0 +1,42 @@
+# E-Ticaret Haberleri
+
+> Türkiye'deki e-ticaret girişimcileri ve mağaza sahipleri için pratik rehberler, platform karşılaştırmaları ve büyüme stratejileri.
+
+E-Ticaret Haberleri, Türkiye'de online mağaza kurmak ve büyütmek isteyen girişimcilere yönelik bağımsız bir içerik platformudur. Yazılar; platform seçimi, kargo yönetimi, ürün sayfası optimizasyonu, sosyal medya reklamcılığı ve teknik konuları kapsamaktadır.
+
+- Yazar: Oğuz Ali Yiğit
+- Dil: Türkçe
+- Kapsam: Türkiye e-ticaret ekosistemi
+- Güncelleme: Düzenli
+
+## Blog Yazıları
+
+### E-Ticaret
+
+- [Türkiye'de E-Ticaret Kuracaksan Hangi Altyapıyı Seçmelisin?](https://eticarethaberleri.com/blog/en-iyi-eticaret-altyapilari): Shopify, WooCommerce, Ticimax, ideasoft ve ikas platform karşılaştırması. Türkiye gerçekliğine uygun, senaryolar üzerinden değerlendirme. Sonuç: ikas, Türkiye'de en az sürtünmeli seçenek.
+
+- [ikas ile E-Ticaret Mağazası Açmak: Sıfırdan İlk Siparişe](https://eticarethaberleri.com/blog/ikas-ile-eticaret-magazasi-nasil-acilir): Ücretsiz hesap açmaktan ilk ürünü yayınlamaya, kargo ve ödeme ayarlarından ilk siparişe kadar adım adım pratik rehber.
+
+- [E-Ticarette Kargo Yönetimi: Müşteri Kaybetmenin En Kolay Yolu](https://eticarethaberleri.com/blog/eticaret-kargo-lojistik-yonetimi): Türkiye'de e-ticaret mağazalarının %34'ü kargo sorunları yüzünden müşteri kaybediyor. Kargo entegrasyonu, gönderi takibi ve iade sürecini doğru kurma rehberi.
+
+- [Ürün Sayfası Neden Dönüşüm Öldürür (ve Nasıl Düzeltilir)](https://eticarethaberleri.com/blog/urun-sayfasi-optimizasyonu): Ziyaretçilerin %70'i ürün sayfasından sepete atmadan ayrılıyor. Başlık, görsel, açıklama ve sosyal kanıt optimizasyonuyla dönüşümü artırma.
+
+- [E-Ticarette Sosyal Medya Reklamı: Parayı Nereye Harcamalısın?](https://eticarethaberleri.com/blog/eticaret-sosyal-medya-reklam-stratejisi): Meta Ads, TikTok ve Google arasında bütçe dağılımı. Türkiye'de e-ticaret yapan mağazalar için kanal seçimi, hedefleme ve ölçüm rehberi.
+
+### Web Geliştirme
+
+- [Next.js App Router ile SEO Optimizasyonu](https://eticarethaberleri.com/blog/nextjs-ile-seo): generateMetadata, JSON-LD structured data ve dinamik sitemap ile blog ve e-ticaret sitelerini Google ve yapay zeka arama motorları için optimize etme.
+
+- [Tailwind CSS ile Verimli UI Geliştirme: 10 İpucu](https://eticarethaberleri.com/blog/tailwind-ipuclari): Tailwind CSS'i daha verimli kullanmak için pratik ipuçları: dark mode, arbitrary values, component extraction ve performans optimizasyonu.
+
+## Sitedeki Diğer Sayfalar
+
+- [Ana Sayfa](https://eticarethaberleri.com/): Son blog yazıları ve öne çıkan içerikler
+- [E-Ticaret Kategori](https://eticarethaberleri.com/kategori/e-ticaret): Tüm e-ticaret yazıları
+- [Web Geliştirme Kategori](https://eticarethaberleri.com/kategori/web-gelistirme): Tüm teknik yazılar
+
+## Hakkında
+
+Bu site, Türkiye'deki e-ticaret girişimcilerine yönelik bağımsız bir içerik platformudur. Yazılar deneyim ve araştırmaya dayalıdır. Ticari ilişkiler açıklanır.
+
+İletişim için: GitHub üzerinden ulaşılabilir.
